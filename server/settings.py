@@ -13,8 +13,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 
+from utility import get_local_ip_address
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+LOCAL_IP = get_local_ip_address()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -25,7 +29,8 @@ SECRET_KEY = 'django-insecure-&2!ew%hr&rh2&u#4a9$_3=1__=39d_lkg+se72!_4h_(k+ee+f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["d2aa-103-100-4-162.ngrok.io",
+                 "localhost", "127.0.0.1", LOCAL_IP]
 
 # Application definition
 
@@ -39,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
+    'utility.apps.UtilityConfig',
     'auth_user.apps.AuthUserConfig',
     'friends.apps.FriendsConfig',
     'post.apps.PostConfig',
@@ -170,9 +176,12 @@ REST_FRAMEWORK = {
 # SIMPLE JWT
 # https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
-    'REFRESH_TOKEN_LIFETIME': timedelta(minutes=10),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(minutes=2),
     'UPDATE_LAST_LOGIN': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ROTATE_REFRESH_TOKENS': False,
+    'AUTH_HEADER_TYPES': ('Bearer', 'JWT'),
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': SECRET_KEY,
     'AUTH_HEADER_TYPES': ('Bearer', ),
@@ -181,5 +190,5 @@ SIMPLE_JWT = {
 
 # CORS
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
+    "http://{}:8000".format(LOCAL_IP),
 ]

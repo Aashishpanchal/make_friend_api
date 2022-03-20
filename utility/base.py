@@ -2,22 +2,13 @@ import uuid
 import os
 
 
-class FileValidationError(Exception):
-    pass
-
-
 class BaseUtils:
 
     def get_file_extension(
         self,
         file_name: str,
-        file_extension: tuple[str] = (".png", ".jpg", ".jpeg", ".gif")
     ) -> str:
-        # check file extension
-        if file_name.endswith(file_extension):
-            raise FileValidationError("File extension is not allowed")
-        else:
-            return os.path.splitext(file_name)[1]
+        return os.path.splitext(file_name)[1]
 
     def generate_unique_name(self, file_name: str) -> str:
         file_extension = self.get_file_extension(file_name)

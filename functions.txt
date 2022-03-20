@@ -1,0 +1,37 @@
+-> User View
+1. UserCreate 👍🏽
+2. UserUpdate 👍🏽
+3. UserRetrieve 👍🏽
+
+-> Auth View
+1. Login 👍🏽
+2. logout 👍🏽
+3. logout all system 👍🏽
+4. Refresh Token 👍🏽
+
+-> Post View
+1. PostCreate
+2. PostUpdate
+3. PostDelete
+4. PostRetrieve:-
+    1. PostList with pagination
+    2. get one Post
+5. LikePost
+6. DisLikePost
+7. CommentPost
+8. DeleteCommentPost
+9. UpdateCommentPost
+10. SavePost
+11. UnSavePost
+
+-> Friends View
+1. SendFriendRequest
+2. AcceptFriendRequest
+3. NotAcceptFriendRequest
+4. DeleteFriend
+5. FriendsRetrieveList with pagination
+
+-> Follow View
+1. Follow
+2. UnFollow
+

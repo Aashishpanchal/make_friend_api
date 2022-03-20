@@ -7,7 +7,7 @@ from auth_user.api.auth_apiviews import (
     JWTokenVerifyAPIView,
 )
 
-app_name = 'auth_user'
+app_name = 'auth_api'
 
 urlpatterns = [
     path("api/login/token/", LoginApiView.as_view()),

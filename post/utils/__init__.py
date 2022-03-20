@@ -1,4 +1,4 @@
-from server.utils.base import base_utils
+from utility.base import base_utils
 from django.conf import settings
 
 

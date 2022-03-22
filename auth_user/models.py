@@ -28,8 +28,7 @@ class AbstractUser(DjangoAbstractUser):
     REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
 
     def __str__(self):
-        return "{class_name}({username})".format(
-            class_name=self.__class__.__name__, username=self.username)
+        return str(self.id)
 
 
 class User(AbstractUser):
@@ -41,3 +40,15 @@ class User(AbstractUser):
     def full_name(self):
         user_fullname = self.get_full_name()
         return user_fullname
+
+    def followers(self):
+        try:
+            return self.follow_followed.count()
+        except Exception as e:
+            return 0
+
+    def following(self):
+        try:
+            return self.follow_follower.count()
+        except Exception as e:
+            return 0

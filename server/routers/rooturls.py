@@ -22,4 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('auth_user.routers.auth_apiurls')),
     path('user/', include('auth_user.routers.user_apiurls')),
+    path('post/', include('post.routers.apiurls')),
+    path('follow/', include('follow.routers.apiurls')),
+    path('friends/', include('friends.routers.apiurls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

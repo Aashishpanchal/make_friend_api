@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7692e219f6ddd06bf1f802380c69685c1b30f157722f796966c52df6a69423a5"
+            "sha256": "30719cb4bccafb2e63571a33cbdb9cb8c193846f3c724e5de5d3c09af05aceb4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -56,6 +56,13 @@
             "index": "pypi",
             "version": "==5.1.0"
         },
+        "numerize": {
+            "hashes": [
+                "sha256:5548fe72adceb2c7964998179697d80117bb117f57cd02f872cf5db40d615c04"
+            ],
+            "index": "pypi",
+            "version": "==0.12"
+        },
         "pillow": {
             "hashes": [
                 "sha256:011233e0c42a4a7836498e98c1acf5e744c96a67dd5032a6f666cc1fb97eab97",
@@ -107,10 +114,10 @@
         },
         "pytz": {
             "hashes": [
-                "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c",
-                "sha256:acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"
+                "sha256:1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7",
+                "sha256:e68985985296d9a66a881eb3193b0906246245294a881e7c8afe623866ac6a5c"
             ],
-            "version": "==2021.3"
+            "version": "==2022.1"
         },
         "sqlparse": {
             "hashes": [

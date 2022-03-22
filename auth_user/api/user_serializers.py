@@ -7,6 +7,9 @@ from django.contrib.auth.password_validation import validate_password
 
 from auth_user.models import User
 from auth_user.constants import Messages
+from utility.serializers import ReadOnlyModelSerializer
+
+from numerize.numerize import numerize
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -88,10 +91,24 @@ class UserDetailUpdateSerializer(serializers.ModelSerializer):
         }
 
 
-class UserDetailRetrieveSerializer(serializers.ModelSerializer):
+class UserDetailRetrieveSerializer(ReadOnlyModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name',
-                  'last_name', 'user_image', 'back_cover_image', 'bio']
-        read_only_fields = ('id', 'username', 'email',
-                            'first_name', 'last_name', 'user_image', 'back_cover_image', 'bio')
+        fields = ("id", "username", "email", "first_name",
+                  "last_name", "bio", "user_image", "back_cover_image")
+
+
+class AllUserListSerializer(ReadOnlyModelSerializer):
+    followers = serializers.SerializerMethodField()
+    following = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = ("id", "username", "email", "first_name",
+                  "last_name", "bio", "user_image", "back_cover_image", "followers", "following")
+
+    def get_followers(self, obj):
+        return numerize(obj.followers())
+
+    def get_following(self, obj):
+        return numerize(obj.following())

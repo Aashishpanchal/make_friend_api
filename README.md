@@ -12,4 +12,4 @@ Basic Social Media API based on Django Rest Framework. It provides basic functio
 - Post/Like/Comment/Save with Pagination
 - Friends/Delete Friends/Friend List Pagination
 - SendFriend Request / Show Request with Pagination
-- Follo/UnFollo
+- Follow/UnFollow

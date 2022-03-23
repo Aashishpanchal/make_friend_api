@@ -29,8 +29,7 @@ SECRET_KEY = 'django-insecure-&2!ew%hr&rh2&u#4a9$_3=1__=39d_lkg+se72!_4h_(k+ee+f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["d2aa-103-100-4-162.ngrok.io",
-                 "localhost", "127.0.0.1", LOCAL_IP]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", LOCAL_IP]
 
 # Application definition
 
@@ -69,7 +68,7 @@ ROOT_URLCONF = 'server.routers.rooturls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,6 +133,7 @@ AUTH_USER_MODEL = 'auth_user.User'
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOF = BASE_DIR / 'static'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -190,5 +190,6 @@ SIMPLE_JWT = {
 
 # CORS
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
     "http://{}:8000".format(LOCAL_IP),
 ]
